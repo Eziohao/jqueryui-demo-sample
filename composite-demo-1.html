@@ -2,93 +2,177 @@
 <html lang="us">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI Composite Demo 1</title>
+	<title>jQuery UI Composite Demo - Flight Booking</title>
 	<link href="css/reset.css" rel="stylesheet">
 	<link href="css/ui-lightness/jquery-ui-1.9.0.custom.css" rel="stylesheet">
 	<link href="css/compositeDemos.css" rel="stylesheet">
 	<script src="js/jquery-1.8.2.min.js"></script>
 	<script src="js/jquery-ui-1.9.0.custom.min.js"></script>
+	<script src="js/compositeDemos.js"></script>
 	<script src="js/compositeDemo1.js"></script>
 </head>
-<body> 
-<div class="entry-content-wrap">
-    <div class="entry-content">
-        <h1>jQuery UI Composite Demo 1 - Flight Booking</h1>
-        <div class="ui-widget entry-content-desc">
-	        <p>A composite demo featuring multiple jQuery UI components/widgets in a "real world" scenario.  This demo shows a potential flight picker.</p>
-            <h2 class="demoHeaders">Components/Widgets Used</h2>
-            <ul>
-                <li><a href="http://jqueryui.com/tabs/">Tabs</a> (<a href="http://api.jqueryui.com/tabs/">Tabs API</a>)</li>
-                <li><a href="http://jqueryui.com/autocomplete/">Autocomplete</a> (<a href="http://api.jqueryui.com/autocomplete/">Autocomplete API</a>)</li>
-                <li><a href="http://jqueryui.com/datepicker/">Datepicker</a> (<a href="http://api.jqueryui.com/datepicker/">Datepicker API</a>)</li>
-                <li><a href="http://jqueryui.com/spinner/">Spinner</a> (<a href="http://api.jqueryui.com/spinner/">Spinner API</a>)</li>
-                <li><a href="http://jqueryui.com/button/">Button</a> (<a href="http://api.jqueryui.com/button/">Button API</a>)</li>
-            </ul>
-        </div>
-        <div class="clr"></div>
-        <div class="tabs-outer-wrap">
-            <ul>
-                <li><a href="#flightDemo">Book A Flight</a></li>
-            </ul>
-            <div class="tabs-inner-wrap">
-                <div id="flightDemo">
-                    <div id="airportWrap">
-                        <div id="flightFromWrap">
-                            <label for="flightFrom">Leaving From:</label>
-                            <input id="flightFrom" class="autocomplete ui-corner-all" autocomplete="off" title="" value="">
-                        </div>
-                        <div id="flightToWrap">
-                            <label for="flightTo">Going To:</label>
-                            <input id="flightTo" class="autocomplete ui-corner-all" autocomplete="off" title="" value="">
-                        </div>
-                        <div class="clr"></div>
+<body>
+<div class="entry-inner-wrap"> 
+    <h1>Search/Book Flights</h1>
+    <div class="clr"></div>
+    <div class="entry-inner-left">
+        <div id="flightDemo">
+            
+                <div id="airportWrap">
+                    <div id="flightFromWrap">
+                        <label for="flightFrom">Leaving From:</label>
+                        <input id="flightFrom" name="flightFrom" class="watermark watermarked autocomplete ui-corner-all" autocomplete="off" title="City or Airport Code" value="">
+                    </div>
+                    <div id="flightToWrap">
+                        <label for="flightTo">Going To:</label>
+                        <input id="flightTo" name="flightTo" class="watermark watermarked autocomplete ui-corner-all" autocomplete="off" title="City or Airport Code" value="">
                     </div>
                     <div class="clr"></div>
-                    <div id="dateWrap">
-                        <div id="departureDateWrap">
-                            <label for="departureDate">Departure Date:</label>
-                            <input id="departureDate" class="datepicker ui-corner-all" value="" />
-                        </div>
-                        <div id="returnDateWrap">
-                            <label for="returnDate">Return Date:</label>
-                            <input id="returnDate" class="datepicker watermark watermarked ui-corner-all" value="" title="One Way" />
-                        </div>
-                        <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div id="dateWrap">
+                    <div id="departureDateWrap">
+                        <label for="departureDate">Departure Date:</label>
+                        <input id="departureDate" name="departureDate" class="datepicker watermark watermarked ui-corner-all" value="" />
                     </div>
-                    <div id="quantityWrap">
-                        <div id="quantityAdultWrap">
-                            <label for="quantityAdult">Adult:</label>
-                            <input id="quantityAdult" class="spinner" value="1" />
-                        </div>
-                        <div id="quantityChildWrap">
-                            <label for="quantityChild">Child:</label>
-                            <input id="quantityChild" class="spinner" value="0" />
-                        </div>
-                        <div id="quantityInfantWrap">
-                            <label for="quantityInfant">Infant:</label>
-                            <input id="quantityInfant" class="spinner" value="0" />
-                        </div>
-                        <div class="clr"></div>
-                    </div>
-                    <div id="searchWrap">
-                        <button id="button">Search</button>
-                        <div class="clr"></div>
+                    <div id="returnDateWrap">
+                        <label for="returnDate">Return Date:</label>
+                        <input id="returnDate" name="returnDate" class="datepicker watermark watermarked ui-corner-all" value="" title="One Way" />
                     </div>
                     <div class="clr"></div>
-                    <div id="timeWrap">
-                        <!--<div id="time" class="slider"></div>-->
+                </div>
+                <div class="clr"></div>
+                <div id="timeWrap">
+                    <div id="departureTimeWrap">
+                        <label for="departTimeFrame">Departure Time:</label>
+                        <input type="text" id="departTimeFrame" name="departTimeFrame" class="time-frame" />
+                        <div id="departTimeAmPm">
+                            <input type="radio" id="departTimeTodAm" name="departTimeTod" value="AM" checked="checked" /><label for="departTimeTodAm">AM</label>
+                            <input type="radio" id="departTimeTodPm" name="departTimeTod" value="PM" /><label for="departTimeTodPm">PM</label>
+                        </div>
+                        <div class="clr"></div>
+                        <div id="departTime" class="time-range slider"></div>
+                        <div class="clr"></div>
+                    </div>
+                    <div id="returnTimeWrap">
+                        <label for="returnTimeFrame">Return Time:</label>
+                        <input type="text" id="returnTimeFrame" name="returnTimeFrame" class="time-frame" />
+                        <div id="returnTimeAmPm">
+                            <input type="radio" id="returnTimeTodAm" name="returnTimeTod" value="AM" checked="checked" /><label for="returnTimeTodAm">AM</label>
+                            <input type="radio" id="returnTimeTodPm" name="returnTimeTod" value="PM" /><label for="returnTimeTodPm">PM</label>
+                        </div>
+                        <div class="clr"></div>
+                        <div id="returnTime" class="time-range slider"></div>
                         <div class="clr"></div>
                     </div>
                     <div class="clr"></div>
                 </div>
-            </div>
-            <div class="clr"></div>
-        </div><!--/.tabs-wrap-->
+                <div class="clr"></div>
+                <div id="quantityWrap">
+                    <div id="quantityAdultWrap">
+                        <label for="quantityAdult">Adult:</label>
+                        <input id="quantityAdult" name="quantityAdult" class="spinner" value="1" />
+                    </div>
+                    <div id="quantityChildWrap">
+                        <label for="quantityChild">Child:</label>
+                        <input id="quantityChild" name="quantityChild" class="spinner" value="0" />
+                    </div>
+                    <div id="quantityInfantWrap">
+                        <label for="quantityInfant">Infant:</label>
+                        <input id="quantityInfant" name="quantityInfant" class="spinner" value="0" />
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div id="searchWrap">
+                    <button id="button">Search</button>
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div id="flightDemoFormError" class="ui-widget">
+	                <div id="flightDemoFormErrorInner" class="ui-state-error ui-corner-all">
+		                <p>
+                            <span class="ui-icon ui-icon-alert"></span>
+                            <strong>Alert:</strong> Looks like you missed something:
+                        </p>
+                        <ul></ul>
+	                </div>
+                </div>
+                <div class="clr"></div>
+            
+            <div class="clr"></div> 
+        </div>
         <div class="clr"></div>
-    </div><!--/.entry-content-->
+        <div id="flightDemoLoading">
+            <img src="css/ui-lightness/images/ajax-loader.gif" alt="Loading..." />
+            <div class="clr"></div>
+        </div>
+        <div class="clr"></div>
+        <div id="flightDemoComplete">
+            <h2>You Selected The Following:</h2>
+            <ul></ul>
+            <div class="clr"></div>
+            <a id="flightDemoBack">&laquo; Back To Form</a>
+            <div class="clr"></div>
+        </div>
+        <div class="clr"></div>
+    </div>
     <div class="clr"></div>
-</div><!--/.entry-content-wrap-->
-
-
+    <div class="entry-content-desc">
+        <h2 class="demoHeaders">Widgets Used</h2>
+        <ul>
+            <li>
+                <a id="autocompleteInfoIcon" class="info-icon-wrap ui-state-default ui-corner-all" href="http://jqueryui.com/autocomplete/" title="Enables users to quickly find/select from a pre-populated list of values as they type leveraging searching and filtering.">
+                    <span class="ui-icon ui-icon-info"></span>
+                </a> 
+                <a href="http://jqueryui.com/autocomplete/">Autocomplete</a> 
+                <a href="http://api.jqueryui.com/autocomplete/"><span>(</span>Documentation<span>)</span></a>
+            </li>
+            <li>
+                <a id="datepickerInfoIcon" class="info-icon-wrap ui-state-default ui-corner-all" href="http://jqueryui.com/datepicker/" title="Select a date from a popup or inline calendar.">
+                    <span class="ui-icon ui-icon-info"></span>
+                </a>
+                <a href="http://jqueryui.com/datepicker/">Datepicker</a> 
+                <a href="http://api.jqueryui.com/datepicker/"><span>(</span>Documentation<span>)</span></a>
+            </li>
+            <li>
+                <a id="sliderInfoIcon" class="info-icon-wrap ui-state-default ui-corner-all" href="http://jqueryui.com/slider/" title="Drag a handle to select a numeric value.">
+                    <span class="ui-icon ui-icon-info"></span>
+                </a> 
+                <a href="http://jqueryui.com/slider/">Slider</a> 
+                <a href="http://api.jqueryui.com/slider/"><span>(</span>Documentation<span>)</span></a>
+            </li>
+            <li>
+                <a id="spinnerInfoIcon" class="info-icon-wrap ui-state-default ui-corner-all" href="http://jqueryui.com/spinner/" title="Enhance a text input for entering numeric values, with up/down buttons and arrow key handling.">
+                    <span class="ui-icon ui-icon-info"></span>
+                </a>
+                <a href="http://jqueryui.com/spinner/">Spinner</a> 
+                <a href="http://api.jqueryui.com/spinner/"><span>(</span>Documentation<span>)</span></a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a id="buttonInfoIcon" class="info-icon-wrap ui-state-default ui-corner-all" href="http://jqueryui.com/button/" title="Themable buttons and button sets.">
+                    <span class="ui-icon ui-icon-info"></span>
+                </a>
+                <a href="http://jqueryui.com/button/">Button</a> 
+                <a href="http://api.jqueryui.com/button/"><span>(</span>Documentation<span>)</span></a>
+            </li>
+            <li>
+                <a id="dialogInfoIcon" class="info-icon-wrap ui-state-default ui-corner-all" href="http://jqueryui.com/dialog/" title="The basic dialog window is an overlay positioned within the viewport. It has a title bar,content area, and can be moved, resized and closed.">
+                    <span class="ui-icon ui-icon-info"></span>
+                </a>
+                <a href="http://jqueryui.com/dialog/">Dialog</a> 
+                <a href="http://api.jqueryui.com/dialog/"><span>(</span>Documentation<span>)</span></a>
+            </li>
+            <li>
+                <a id="tooltipInfoIcon" class="info-icon-wrap ui-state-default ui-corner-all" href="http://jqueryui.com/button/" title="Customizable, themeable tooltips, replacing native tooltips.">
+                    <span class="ui-icon ui-icon-info"></span>
+                </a> 
+                <a href="http://jqueryui.com/tooltip/">Tooltip</a> 
+                <a href="http://api.jqueryui.com/tooltip/"><span>(</span>Documentation<span>)</span></a>
+            </li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
