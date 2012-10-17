@@ -1,6 +1,14 @@
 jQuery.noConflict();
 jQuery.fn.exists = function () { return this.length > 0; }
 jQuery(document).ready(function ($) {
+    /* Common Functionality */
+    //Inner Content Scroll Class
+    var contentHeight = $("#entryInnerWrap").height();
+    if (parseInt(contentHeight) > 453) {
+        $("#entryInnerWrap").addClass("entry-inner-wrap-scroll");
+    }
+    
+    /* Demo Specific Functionality */
     //Autocomplete
     var availableTags = [
 	    "Aberdeen, SD (ABR)",
